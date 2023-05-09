@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    
+#nav {
+    background-color: teal;
+    color: white;
+    width: 100%;
+    height: 70px;
+    display: flex;
+    justify-content: space-around;
+    align-items: baseline;
+  }
+  a {
+    text-decoration: none;
+    color: white;
+  }
+    </style>
+</head>
+<body>
+    <div id="nav">
+        <h1 id="header">Blog </h1>
+        <a href="./signup.html"><h3>Sign Up</h3></a>
+        <a href="./signin.html"><h3>SignIn</h3></a>
+        <a href="./blogpage.html"><h3>Blog </h3></a>
+        <a href="./Leaderboard.html"><h3>LeaderBoard </h3></a>
+        <a href="./Addblog.html"><h3>Add Blog </h3></a>
+      </div>
+
+
+      <div id="block1"> </div>
+</body>
+</html>
+<script>
+
+
+const leaderboard=()=>{
+    const url=`https://newm.onrender.com/blogs`
+  
+    fetch(url)
+      .then(function (res) {
+        return res.json();
+      })
+      .then(function (res) {
+        console.log(res);
+        lederData(res);
+      })
+      .catch(function (err) {
+        console.log(err);
+      });
+  }
+leaderboard();
+
+
+
+function lederData(res){
+    let container=document.getElementById("block1");
+    container.innerHTML=""
+    res?.map(function(el){
+
+        let div=document.createElement("div");
+
+        let username=document.createElement("h4");
+        username.textContent=el.username
+        username.setAttribute("class","tata1")
+
+        let likes=document.createElement("p");
+        likes.textContent=el.likes
+
+       
+
+        div.append(username,likes);
+        container.append(div);
+
+
+    })
+
+}
+
+
+</script>

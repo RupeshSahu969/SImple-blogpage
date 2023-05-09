@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="Styles/blog.css" /> 
+</head>
+<body>
+    <div id="nav">
+        <h1 id="header">Blog </h1>
+        <a href="./signup.html"><h3>Sign Up</h3></a>
+        <a href="./signin.html"><h3>SignIn</h3></a>
+        <a href="./blogpage.html"><h3>Blog </h3></a>
+        <a href="./Leaderboard.html"><h3>LeaderBoard </h3></a>
+        <a href="./Addblog.html"><h3>Add Blog </h3></a>
+      </div>
+
+
+      <form id="form1">
+        <h1>Add Blog Page</h1><br>
+        <label>User Name</label><br />
+        <input id="username" type="text" placeholder="Enter user Name" /><br />     
+        <label>Title </label><br />
+        <input id="title" type="text" placeholder="Enter text" /><br />
+        <label>Content </label><br />
+        <textarea rows="4" cols="50" name="comment" id="content"></textarea>
+        <br/>
+        <label>Category</label>
+        <select id="category">
+            <option value="Business">Business</option>
+            <option value="Tech">Tech</option>
+            <option value="Lifestyle">Lifestyle</option>
+            <option value="Entertainment">Entertainment</option>
+        </select><br/>
+        <label>Date </label>
+        <input id="date" type="date" /><br />
+
+        <br />
+
+        <input type="submit" value="Post Blog" />
+      </form>
+</body>
+</html>
+<script>
+   document.querySelector("#form1").addEventListener("submit",getBooks);
+
+function getBooks()
+{
+event.preventDefault();
+
+let username=document.getElementById("username").value;
+let title=document.getElementById("title").value;
+let content=document.getElementById("content").value;
+let category=document.getElementById("category").value;
+let date=document.getElementById("date").value;
+
+
+let obj={
+   username,
+   title,
+   content,
+   category,
+   date
+}
+
+
+fetch('https://newm.onrender.com/blogs', {
+method: 'POST',
+headers: {
+'Content-Type': 'application/json',
+},
+body: JSON.stringify(obj),
+})
+.then((response) => response.json())
+.then((obj) => {
+console.log('Success:', obj);
+alert("susess")
+window.location.reload();
+})
+.catch((er) => {
+console.log(er)
+});
+
+}
+
+</script>

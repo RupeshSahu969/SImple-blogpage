@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="Styles/blog.css" /> 
+</head>
+<body>
+    <div id="nav">
+        <h1 id="header">Blog </h1>
+        <a href="./signup.html"><h3>Sign Up</h3></a>
+        <a href="./signin.html"><h3>SignIn</h3></a>
+        <a href="./blogpage.html"><h3>Blog </h3></a>
+        <a href="./Leaderboard.html"><h3>LeaderBoard </h3></a>
+        <a href="./Addblog.html"><h3>Add Blog </h3></a>
+      </div>
+
+      <div id="searchbar">
+        <input type="text" placeholder="search" id="search">
+        <input type="submit" id="sum1" >
+      </div>
+      <select id="filter" onchange="handleFilterData()" >
+        <option value="">Filter by Category</option>
+        <option value="Business">Business</option>
+            <option value="Tech">Tech</option>
+            <option value="Lifestyle">Lifestyle</option>
+            <option value="Entertainment">Entertainment</option>
+      </select>
+
+      <select id="date" onchange="handleSort()">
+        <option value="">Sort By Date</option>
+        <option value="desc">Descending</option>
+        <option value="asc">Ascending</option>
+      </select>
+
+      <div id="blog"></div>
+
+      <div id="page">
+        <div onclick="dataPagesDec()">Prev</div>
+        <div onclick="dataPages1()">1</div>
+        <div onclick="dataPages2()">2</div>
+        <div onclick="dataPages3()">3</div>
+        
+        <div onclick="dataPagesInc()">Next</div>
+    </div>
+    <div id="modal" class="modal-hidden">
+        <div class="modal-con">
+        
+        
+    </div> 
+
+
+
+</body>
+</html>
+<script src="/Script/blog.js"></script>
